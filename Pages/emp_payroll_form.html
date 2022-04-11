@@ -9,12 +9,13 @@
     <!--linking css file-->
    <link rel = "stylesheet" href="../CSS/emp_payroll_form.css">
     <title>Employee Payroll form</title>
+    <script defer src = "../java-script/payrollForm.js"></script>
 </head>
 <body>
    <!---UC 1 logo content--> 
    <header class="header -content header">
        <div class="logo-content">
-           <img src="../assets/images/logo.png" alt=""/>
+           <img src="../assets/images/logo.png" alt="">
    <div>
        <!---2class one is for employee and other for payroll-->
        <span class="emp-text">EMPLOYEE</span><br>
@@ -22,5 +23,17 @@
    </div>
        </div>
    </header>
+   <div class="form-content">
+       <!--form content, and form class , on submit we are calling save event-->
+       <form class="form" action="#" onsubmit="save(event);">
+        <!--UC 2-->
+        <div class="form-head">Employee Payroll form</div>
+        <div class="row-content">
+            <label class="label text" for="name">Name</label>
+            <input class="input" type="text" name="name"
+            placeholder="your name.." required>
+        </div>
+       </form>
+   </div>
 </body>
 </html>
