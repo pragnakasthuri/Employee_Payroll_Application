@@ -99,7 +99,7 @@ label {
     font-size: 16px;
     color: #42515f;
     opacity: 1;
-    font-famili: Roboto;
+    font-family: Roboto;
 }
 /*input class */
 .input {
@@ -108,4 +108,22 @@ label {
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
+}
+
+/* UC 3 Setting profile button into middle */
+.profile-radio-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.profile-radio-content > label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.profile {
+    width: 40px;
+    border-radius: 50%;
+    margin-left: 12px;
 }
