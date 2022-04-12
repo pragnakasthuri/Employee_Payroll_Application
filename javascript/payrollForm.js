@@ -1,30 +1,18 @@
 class EmployeePayrollData {
-    // Property
-    name;
-    profile;
-    gender;
-    department;
-    salary;
-    startDate;
-    notes;
 
-    constructor(...params) {
-        this.name = params[0];
-        this.profile = params[1];
-        this.gender = params[2];
-        this.department = params[3];
-        this.salary = params[4];
-        this.startDate = params[5];
-        this.notes = params[6];
+    // getters method
+    get id() {
+        return this._id;
     }
 
     get name() {
         return this._name;
     }
 
-    get profile() {
-        return this._profile;
+    get profilePic() {
+        return this._profilePic;;
     }
+
 
     get gender() {
         return this._gender;
@@ -33,25 +21,30 @@ class EmployeePayrollData {
     get department() {
         return this._department;
     }
-
+    
     get salary() {
         return this._salary;
     }
-
+    
     get startDate() {
         return this._startDate;
     }
-
+    
     get notes() {
         return this._notes;
     }
 
-    set name(name) {
-        this._name = name;
+    // setters method
+    set id(id) {
+        this._id = id;
     }
-
-    set profile(profile) {
-        this._profile = profile;
+    
+    set name(name) {
+        let nameRegex = RegExp('^[A-Z][a-z A-Z]{2,}$');
+        if(name.match(nameRegex))
+            this._name = name;
+        else 
+            throw "Name is incorrect";
     }
 
     set department(department) {
@@ -67,18 +60,20 @@ class EmployeePayrollData {
     }
 
     set startDate(startDate) {
-          this._startDate = startDate;
+            this._startDate = startDate;
     }
 
     set notes(notes) {
           this._notes = notes;
     }
 
+    // method
     toString() { 
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        const empDate = this.startDate === undefined ? "undefined" :
-                        new Date(this.startDate).toLocaleDateString("en-US", options);
-        return " Name: " + this.name + "\n Profile_image: " + this.profile + "\n Gender: " + this.gender + "\n Department: " + this.department + "\n Salary: " + this.salary + "\n Start Date: " + empDate + "\n Notes: " + this.notes;
+        const empDate = !this._startDate ? "undefined" : new Date(this.startDate).toLocaleDateString("en-US", options);
+        return "Name: " + this._name + "\n Profile Pic: " + this._profilePic  + "\n Gender: " + this._gender 
+                + "\n Department: " + this._department + "\n Salary: " + this._salary + "\n Start Date: " 
+                + empDate + "\n Notes: " + this._notes;
     }
 }
 
