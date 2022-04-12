@@ -72,6 +72,8 @@ class EmployeePayrollData {
     }
 }
 
+console.log("hellooooo");
+
 //salary range
 const salary = document.querySelector('#salary');
 const salaryOutput = document.querySelector('.salary-output');
@@ -91,6 +93,7 @@ name.addEventListener('input', function() {
         nameError.textContent = "Name is incorrect  Rule : 1st letter should in caps,  Should contain min 3 letter";
 });
 
+
 /**
  * Function to save the employee details
  */
@@ -109,7 +112,13 @@ function save() {
         for (let i = 0; i < departments.length; i++) {
             deptList.push(department[i].value);
         }
-        let salary = document.querySelector('#salary').value;
+        const salary = document.querySelector('#salary');
+        const output = document.querySelector('.salary-output');
+        output.textContent = salary.value;
+        salary.addEventListener('input', function () {
+            output.textContent = salary.value;
+        });
+
         let startDate = document.querySelector('#startDate').value;
         console.log("startdate",startDate);
        
