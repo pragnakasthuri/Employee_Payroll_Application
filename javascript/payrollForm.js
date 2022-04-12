@@ -92,13 +92,17 @@ salary.oninput = function() {
 
 //validation for name
 const nameField = document.querySelector('#name');
-        const nameError = document.querySelector('.name-error');
+        const nameError = document.querySelector('.text-error');
         nameField.addEventListener('input', function () {
-            let nameRegex = RegExp('[A-Z]{1}[a-z]{2,}');
-            if (nameRegex.test(nameField.value)) {
+            if (nameField.value.length === 0) {
                 nameError.textContent = "";
             } else {
-                nameError.textContent = "Name is incorrect";
+                let nameRegex = RegExp('[A-Z]{1}[a-z]{2,}');
+                if (nameRegex.test(nameField.value)) {
+                    nameError.textContent = "";
+                } else {
+                    nameError.textContent = "Name is incorrect";
+                }
             }
         });
 
