@@ -132,7 +132,8 @@ const createEmployeePayroll = () => {
     } catch (e) {
         throw e;
     }
-    employeePayrollData.profilePic = getSelectedValues('.profile').pop();
+
+    employeePayrollData.profilePic = document.querySelector('.profile').src;
     employeePayrollData.gender = getSelectedValues('[name=gender]').pop();
     employeePayrollData.department = getSelectedValues('[name=department]');
     employeePayrollData.salary = getInputValueById('#salary');
@@ -169,3 +170,32 @@ const getInputElementValue = (id) => {
     salary.addEventListener('input', function () {
         salaryOutput.textContent = salary.value;
     });
+
+    const resetForm = () => {
+        setValue('#name','');
+        unsetSelectedValues('[name=profile]');
+        unsetSelectedValues('[name=gender]');
+        unsetSelectedValues('[name=department]');
+        setValue('#salary', '400000');
+        setValue('#notes', '');
+        setValue('#day', 'Day');
+        setValue('#month', 'Month');
+        setValue('#year', 'Year');
+        document.getElementById('salaryOutput').innerHTML = 40000;
+    }
+    
+    const unsetSelectedValues = (propertyValue) => {
+        let allItems = document.querySelectorAll(propertyValue);
+        allItems.forEach(item => {
+            item.checked = false;
+        });
+    }
+    
+    const setTextValue = (id, value) => {
+        const element = document.querySelector(id);
+        element.textContent = value;
+    }
+    const setValue = (id, value) => {
+        const element = document.querySelector(id);
+        element.value = value;
+    }
